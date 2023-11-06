@@ -33,6 +33,9 @@ class Car {
         if (this.speed < 0) {
             this.speed += this.friction;
         }
+        if (Math.abs(this.speed) < this.friction) {
+            this.speed = 0; //fixes the bug that the car keeps moving with no pressed key
+        }
 
         this.y -= this.speed;
     }
